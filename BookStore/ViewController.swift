@@ -15,5 +15,14 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func login(_ sender: UIButton) {
+        performSegue(withIdentifier: "toLogin", sender: self)
+        
+    }
+    
+    
+    @IBAction func registroUsuario(_ sender: UIButton) {
+        performSegue(withIdentifier: "toRegistro", sender: self)
+    }
 }
 

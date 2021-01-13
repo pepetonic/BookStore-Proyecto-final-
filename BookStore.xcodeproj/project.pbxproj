@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		095F286625AF99D000CDF410 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 095F286525AF99D000CDF410 /* Assets.xcassets */; };
 		095F286925AF99D100CDF410 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 095F286725AF99D100CDF410 /* LaunchScreen.storyboard */; };
 		095F287425AF9FCD00CDF410 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 095F287325AF9FCD00CDF410 /* GoogleService-Info.plist */; };
+		095F289125AFAB3A00CDF410 /* crearUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F289025AFAB3A00CDF410 /* crearUserViewController.swift */; };
+		095F289425AFABAE00CDF410 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F289325AFABAE00CDF410 /* loginViewController.swift */; };
+		095F289725AFAC8400CDF410 /* menuPrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F289625AFAC8400CDF410 /* menuPrincipalViewController.swift */; };
 		686FCC99C9EEF2185506C289 /* Pods_BookStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87997E5103EC4F736B9BEC6E /* Pods_BookStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		095F286825AF99D100CDF410 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		095F286A25AF99D100CDF410 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		095F287325AF9FCD00CDF410 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		095F289025AFAB3A00CDF410 /* crearUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crearUserViewController.swift; sourceTree = "<group>"; };
+		095F289325AFABAE00CDF410 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		095F289625AFAC8400CDF410 /* menuPrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuPrincipalViewController.swift; sourceTree = "<group>"; };
 		795E4415EACBDC2C33B0C995 /* Pods-BookStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.release.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.release.xcconfig"; sourceTree = "<group>"; };
 		87997E5103EC4F736B9BEC6E /* Pods_BookStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBDE18C7CC78A40B138EF8A /* Pods-BookStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.debug.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +79,9 @@
 				095F286725AF99D100CDF410 /* LaunchScreen.storyboard */,
 				095F286A25AF99D100CDF410 /* Info.plist */,
 				095F287325AF9FCD00CDF410 /* GoogleService-Info.plist */,
+				095F289025AFAB3A00CDF410 /* crearUserViewController.swift */,
+				095F289325AFABAE00CDF410 /* loginViewController.swift */,
+				095F289625AFAC8400CDF410 /* menuPrincipalViewController.swift */,
 			);
 			path = BookStore;
 			sourceTree = "<group>";
@@ -212,6 +221,9 @@
 				095F286125AF99BC00CDF410 /* ViewController.swift in Sources */,
 				095F285D25AF99BC00CDF410 /* AppDelegate.swift in Sources */,
 				095F285F25AF99BC00CDF410 /* SceneDelegate.swift in Sources */,
+				095F289125AFAB3A00CDF410 /* crearUserViewController.swift in Sources */,
+				095F289725AFAC8400CDF410 /* menuPrincipalViewController.swift in Sources */,
+				095F289425AFABAE00CDF410 /* loginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
