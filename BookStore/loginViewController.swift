@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class loginViewController: UIViewController {
 
+    @IBOutlet weak var correoTextField: UITextField!
+    @IBOutlet weak var contraTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +19,22 @@ class loginViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginToMenu(_ sender: Any) {
+        if let email = correoTextField.text, let password = contraTextField.text{
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                //guard let strongSelf = self else { return }
+                if let e = error {
+                    print(e.localizedDescription )
+                }else{
+                    //login a firebase
+                    if let respuestaFirebase = authResult {
+                        print ("\(respuestaFirebase.user) inicio sesión")
+                        self.performSegue(withIdentifier: "toMenu", sender: self)
+                    }
+                }
+                
+            }
+        }
     }
-    */
-
 }

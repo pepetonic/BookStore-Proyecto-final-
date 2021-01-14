@@ -8,4 +8,5 @@ target 'BookStore' do
   # Pods for BookStore
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
 end

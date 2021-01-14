@@ -6,24 +6,28 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class menuPrincipalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Ocultar el boton de regresar
+        navigationItem.hidesBackButton = true
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   
+    
+    @IBAction func cerrarSesion(_ sender: UIBarButtonItem) {
+        do {
+          try Auth.auth().signOut()
+            print("Se cerro la sesión")
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print ("Error al cerrar sesion", signOutError.localizedDescription)
+        }
     }
-    */
-
+    
 }
