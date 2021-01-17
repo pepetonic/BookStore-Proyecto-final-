@@ -6,7 +6,10 @@ target 'BookStore' do
   use_frameworks!
 
   # Pods for BookStore
+
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'Firebase/Firestore'
+
 end

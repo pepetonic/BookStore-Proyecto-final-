@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class crearUserViewController: UIViewController {
 
@@ -35,6 +36,7 @@ class crearUserViewController: UIViewController {
                     }
                 }else{
                     //Registro exitoso en la bd
+                    //Registrar datos de usuario en Cloud Firestore
                     self.performSegue(withIdentifier: "toMenu", sender: self)
                 }
             }

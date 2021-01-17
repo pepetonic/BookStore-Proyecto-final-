@@ -17,6 +17,9 @@
 		095F289125AFAB3A00CDF410 /* crearUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F289025AFAB3A00CDF410 /* crearUserViewController.swift */; };
 		095F289425AFABAE00CDF410 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F289325AFABAE00CDF410 /* loginViewController.swift */; };
 		095F289725AFAC8400CDF410 /* menuPrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F289625AFAC8400CDF410 /* menuPrincipalViewController.swift */; };
+		0970A60125B4F37700A9B59B /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60025B4F37700A9B59B /* PerfilViewController.swift */; };
+		0970A60425B4F3AF00A9B59B /* BibliotecaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60325B4F3AF00A9B59B /* BibliotecaViewController.swift */; };
+		0970A60725B4F3FF00A9B59B /* WhisListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60625B4F3FF00A9B59B /* WhisListViewController.swift */; };
 		686FCC99C9EEF2185506C289 /* Pods_BookStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87997E5103EC4F736B9BEC6E /* Pods_BookStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,9 @@
 		095F289025AFAB3A00CDF410 /* crearUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crearUserViewController.swift; sourceTree = "<group>"; };
 		095F289325AFABAE00CDF410 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		095F289625AFAC8400CDF410 /* menuPrincipalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuPrincipalViewController.swift; sourceTree = "<group>"; };
+		0970A60025B4F37700A9B59B /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		0970A60325B4F3AF00A9B59B /* BibliotecaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibliotecaViewController.swift; sourceTree = "<group>"; };
+		0970A60625B4F3FF00A9B59B /* WhisListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisListViewController.swift; sourceTree = "<group>"; };
 		795E4415EACBDC2C33B0C995 /* Pods-BookStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.release.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.release.xcconfig"; sourceTree = "<group>"; };
 		87997E5103EC4F736B9BEC6E /* Pods_BookStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBDE18C7CC78A40B138EF8A /* Pods-BookStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.debug.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +88,9 @@
 				095F289025AFAB3A00CDF410 /* crearUserViewController.swift */,
 				095F289325AFABAE00CDF410 /* loginViewController.swift */,
 				095F289625AFAC8400CDF410 /* menuPrincipalViewController.swift */,
+				0970A60025B4F37700A9B59B /* PerfilViewController.swift */,
+				0970A60325B4F3AF00A9B59B /* BibliotecaViewController.swift */,
+				0970A60625B4F3FF00A9B59B /* WhisListViewController.swift */,
 			);
 			path = BookStore;
 			sourceTree = "<group>";
@@ -218,11 +227,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0970A60725B4F3FF00A9B59B /* WhisListViewController.swift in Sources */,
 				095F286125AF99BC00CDF410 /* ViewController.swift in Sources */,
 				095F285D25AF99BC00CDF410 /* AppDelegate.swift in Sources */,
 				095F285F25AF99BC00CDF410 /* SceneDelegate.swift in Sources */,
 				095F289125AFAB3A00CDF410 /* crearUserViewController.swift in Sources */,
 				095F289725AFAC8400CDF410 /* menuPrincipalViewController.swift in Sources */,
+				0970A60125B4F37700A9B59B /* PerfilViewController.swift in Sources */,
+				0970A60425B4F3AF00A9B59B /* BibliotecaViewController.swift in Sources */,
 				095F289425AFABAE00CDF410 /* loginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

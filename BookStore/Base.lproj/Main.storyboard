@@ -167,47 +167,102 @@
                     <view key="view" contentMode="scaleToFill" id="yc3-3E-Wvm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jvQ-n4-Fht" userLabel="Stack View Busqueda">
+                                <rect key="frame" x="10" y="64" width="355" height="53"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar libro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mYP-tS-Psk">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-Xp-rsV">
+                                        <rect key="frame" x="335" y="0.0" width="20" height="53"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="magnifyingglass" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mYP-tS-Psk" firstAttribute="leading" secondItem="jvQ-n4-Fht" secondAttribute="leading" id="83H-8R-Amm"/>
+                                    <constraint firstItem="0Ce-Xp-rsV" firstAttribute="leading" secondItem="mYP-tS-Psk" secondAttribute="trailing" constant="15" id="IXg-UE-Qnn"/>
+                                    <constraint firstItem="mYP-tS-Psk" firstAttribute="top" secondItem="jvQ-n4-Fht" secondAttribute="top" id="sNn-qD-BlM"/>
+                                    <constraint firstAttribute="bottom" secondItem="mYP-tS-Psk" secondAttribute="bottom" id="yuw-y2-Mcy"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o3I-17-57l">
+                                <rect key="frame" x="0.0" y="142" width="375" height="525"/>
+                                <color key="backgroundColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Vbb-w9-JIZ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="o3I-17-57l" firstAttribute="trailing" secondItem="Vbb-w9-JIZ" secondAttribute="trailing" id="1ol-kB-VQk"/>
+                            <constraint firstItem="Vbb-w9-JIZ" firstAttribute="bottom" secondItem="jvQ-n4-Fht" secondAttribute="bottom" constant="550" id="6EM-O2-CtV"/>
+                            <constraint firstItem="Vbb-w9-JIZ" firstAttribute="trailing" secondItem="jvQ-n4-Fht" secondAttribute="trailing" constant="10" id="9Zp-G4-P9L"/>
+                            <constraint firstItem="o3I-17-57l" firstAttribute="leading" secondItem="Vbb-w9-JIZ" secondAttribute="leading" id="Afa-rO-gCb"/>
+                            <constraint firstItem="o3I-17-57l" firstAttribute="top" secondItem="jvQ-n4-Fht" secondAttribute="bottom" constant="25" id="M4K-YP-stv"/>
+                            <constraint firstItem="jvQ-n4-Fht" firstAttribute="top" secondItem="Vbb-w9-JIZ" secondAttribute="top" constant="20" id="Wg1-7k-uWv"/>
+                            <constraint firstItem="jvQ-n4-Fht" firstAttribute="leading" secondItem="Vbb-w9-JIZ" secondAttribute="leading" constant="10" id="X1O-kH-NJv"/>
+                            <constraint firstItem="o3I-17-57l" firstAttribute="bottom" secondItem="Vbb-w9-JIZ" secondAttribute="bottom" id="hk4-24-20j"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Inicio" id="rKl-8D-aED">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.uturn.backward.circle.fill" catalog="system" id="NyT-6G-Tf1">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="cerrarSesion:" destination="YIl-al-46w" id="fs9-pd-FCV"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="lineweight" catalog="system" id="okG-UC-AcA">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="menuButton:" destination="YIl-al-46w" id="9Hd-9I-fN7"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="arrow.uturn.backward.circle.fill" catalog="system" id="NyT-6G-Tf1">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="cerrarSesion:" destination="YIl-al-46w" id="fs9-pd-FCV"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tablaLibros" destination="o3I-17-57l" id="N8k-6b-GAt"/>
+                        <segue destination="1Qo-ru-WmP" kind="show" identifier="toPerfil" id="yGt-9w-2r7"/>
+                        <segue destination="glq-WE-0ah" kind="show" identifier="toWishList" id="NbZ-TL-CkQ"/>
+                        <segue destination="mFi-Ks-Qai" kind="show" identifier="toBiblioteca" id="BRG-h0-wwn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68K-58-L4h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1972" y="129.98500749625188"/>
         </scene>
-        <!--View Controller-->
+        <!--Wish List-->
         <scene sceneID="Wvj-bC-RNI">
             <objects>
-                <viewController id="glq-WE-0ah" sceneMemberID="viewController">
+                <viewController id="glq-WE-0ah" customClass="WhisListViewController" customModule="BookStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYC-7W-fhs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="jxB-zl-rCJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Wish List" id="ymP-5B-JWP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kL3-w1-76A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2807" y="224"/>
         </scene>
-        <!--View Controller-->
+        <!--Perfil-->
         <scene sceneID="a6P-pN-HdY">
             <objects>
-                <viewController id="1Qo-ru-WmP" sceneMemberID="viewController">
+                <viewController id="1Qo-ru-WmP" customClass="PerfilViewController" customModule="BookStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tvs-Ak-gOi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="725-2P-JoX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Perfil" id="uCa-gy-3WV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sz-jI-q4m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -310,6 +365,22 @@
             </objects>
             <point key="canvasLocation" x="1239.2" y="597.75112443778119"/>
         </scene>
+        <!--Biblioteca-->
+        <scene sceneID="May-W8-Omu">
+            <objects>
+                <viewController id="mFi-Ks-Qai" customClass="BibliotecaViewController" customModule="BookStore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iGe-DV-KX3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zS8-wO-b9x"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Biblioteca" id="KyJ-8j-Hxt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Gu-X0-DHt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2124" y="994"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hlq-gn-iO4">
             <objects>
@@ -345,6 +416,8 @@
         <image name="arrow.uturn.backward.circle.fill" catalog="system" width="128" height="121"/>
         <image name="formulario" width="512" height="512"/>
         <image name="libro3" width="512" height="512"/>
+        <image name="lineweight" catalog="system" width="128" height="110"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
