@@ -8,12 +8,16 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseFirestore
 
 class crearUserViewController: UIViewController {
 
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var correoTextField: UITextField!
     @IBOutlet weak var contraTextField: UITextField!
+    
+    //instancia de firestore
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +41,10 @@ class crearUserViewController: UIViewController {
                 }else{
                     //Registro exitoso en la bd
                     //Registrar datos de usuario en Cloud Firestore
+                    self.db.collection("users").document(email).setData([
+                        "nombre" : nombre,
+                        "saldo": 0
+                    ])
                     self.performSegue(withIdentifier: "toMenu", sender: self)
                 }
             }

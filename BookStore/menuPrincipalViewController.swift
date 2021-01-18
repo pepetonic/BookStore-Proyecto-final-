@@ -48,13 +48,25 @@ class menuPrincipalViewController: UIViewController {
     }
     
     @IBAction func cerrarSesion(_ sender: UIBarButtonItem) {
-        do {
-          try Auth.auth().signOut()
-            print("Se cerro la sesión")
-            navigationController?.popToRootViewController(animated: true)
-        } catch let signOutError as NSError {
-            print ("Error al cerrar sesion", signOutError.localizedDescription)
+        let alert = UIAlertController(title: "Cerrar Sesión", message: "Desea cerrar su sesión", preferredStyle: .alert)
+        
+        let aceptar = UIAlertAction(title: "Aceptar", style: .default) { (_) in
+            do {
+              try Auth.auth().signOut()
+                print("Se cerro la sesión")
+                self.navigationController?.popToRootViewController(animated: true)
+            } catch let signOutError as NSError {
+                print ("Error al cerrar sesion", signOutError.localizedDescription)
+            }
         }
+        
+        let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alert.addAction(aceptar)
+        alert.addAction(cancelar)
+        
+        present(alert, animated: true, completion: nil)
+        
     }
     
 }
