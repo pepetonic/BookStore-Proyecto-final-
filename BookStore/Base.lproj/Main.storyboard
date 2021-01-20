@@ -181,6 +181,9 @@
                                         <rect key="frame" x="335" y="0.0" width="20" height="77"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="buscarLibros:" destination="YIl-al-46w" eventType="touchUpInside" id="9xD-HC-qBS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -194,6 +197,16 @@
                                 <rect key="frame" x="0.0" y="122" width="375" height="525"/>
                                 <color key="backgroundColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="7dk-fo-yiq">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7dk-fo-yiq" id="yR4-Wu-thV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vbb-w9-JIZ"/>
@@ -226,6 +239,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="busquedaTextField" destination="mYP-tS-Psk" id="Gsk-io-Qf2"/>
                         <outlet property="tablaLibros" destination="o3I-17-57l" id="N8k-6b-GAt"/>
                         <segue destination="1Qo-ru-WmP" kind="show" identifier="toPerfil" id="yGt-9w-2r7"/>
                         <segue destination="glq-WE-0ah" kind="show" identifier="toWishList" id="NbZ-TL-CkQ"/>

@@ -20,6 +20,10 @@
 		0970A60125B4F37700A9B59B /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60025B4F37700A9B59B /* PerfilViewController.swift */; };
 		0970A60425B4F3AF00A9B59B /* BibliotecaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60325B4F3AF00A9B59B /* BibliotecaViewController.swift */; };
 		0970A60725B4F3FF00A9B59B /* WhisListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60625B4F3FF00A9B59B /* WhisListViewController.swift */; };
+		0970A60B25B7BE8100A9B59B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60925B7BE8100A9B59B /* TableViewCell.swift */; };
+		0970A60C25B7BE8100A9B59B /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0970A60A25B7BE8100A9B59B /* TableViewCell.xib */; };
+		0970A60F25B8E4C700A9B59B /* LibroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60E25B8E4C700A9B59B /* LibroManager.swift */; };
+		0970A61225B8EDB400A9B59B /* LibroData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A61125B8EDB400A9B59B /* LibroData.swift */; };
 		686FCC99C9EEF2185506C289 /* Pods_BookStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87997E5103EC4F736B9BEC6E /* Pods_BookStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +43,10 @@
 		0970A60025B4F37700A9B59B /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		0970A60325B4F3AF00A9B59B /* BibliotecaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibliotecaViewController.swift; sourceTree = "<group>"; };
 		0970A60625B4F3FF00A9B59B /* WhisListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisListViewController.swift; sourceTree = "<group>"; };
+		0970A60925B7BE8100A9B59B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		0970A60A25B7BE8100A9B59B /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		0970A60E25B8E4C700A9B59B /* LibroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibroManager.swift; sourceTree = "<group>"; };
+		0970A61125B8EDB400A9B59B /* LibroData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibroData.swift; sourceTree = "<group>"; };
 		795E4415EACBDC2C33B0C995 /* Pods-BookStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.release.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.release.xcconfig"; sourceTree = "<group>"; };
 		87997E5103EC4F736B9BEC6E /* Pods_BookStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBDE18C7CC78A40B138EF8A /* Pods-BookStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.debug.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +99,10 @@
 				0970A60025B4F37700A9B59B /* PerfilViewController.swift */,
 				0970A60325B4F3AF00A9B59B /* BibliotecaViewController.swift */,
 				0970A60625B4F3FF00A9B59B /* WhisListViewController.swift */,
+				0970A60925B7BE8100A9B59B /* TableViewCell.swift */,
+				0970A60A25B7BE8100A9B59B /* TableViewCell.xib */,
+				0970A60E25B8E4C700A9B59B /* LibroManager.swift */,
+				0970A61125B8EDB400A9B59B /* LibroData.swift */,
 			);
 			path = BookStore;
 			sourceTree = "<group>";
@@ -172,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				095F286925AF99D100CDF410 /* LaunchScreen.storyboard in Resources */,
+				0970A60C25B7BE8100A9B59B /* TableViewCell.xib in Resources */,
 				095F287425AF9FCD00CDF410 /* GoogleService-Info.plist in Resources */,
 				095F286625AF99D000CDF410 /* Assets.xcassets in Resources */,
 				095F286425AF99BC00CDF410 /* Main.storyboard in Resources */,
@@ -232,10 +245,13 @@
 				095F285D25AF99BC00CDF410 /* AppDelegate.swift in Sources */,
 				095F285F25AF99BC00CDF410 /* SceneDelegate.swift in Sources */,
 				095F289125AFAB3A00CDF410 /* crearUserViewController.swift in Sources */,
+				0970A60B25B7BE8100A9B59B /* TableViewCell.swift in Sources */,
 				095F289725AFAC8400CDF410 /* menuPrincipalViewController.swift in Sources */,
 				0970A60125B4F37700A9B59B /* PerfilViewController.swift in Sources */,
+				0970A61225B8EDB400A9B59B /* LibroData.swift in Sources */,
 				0970A60425B4F3AF00A9B59B /* BibliotecaViewController.swift in Sources */,
 				095F289425AFABAE00CDF410 /* loginViewController.swift in Sources */,
+				0970A60F25B8E4C700A9B59B /* LibroManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
