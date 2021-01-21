@@ -24,6 +24,7 @@
 		0970A60C25B7BE8100A9B59B /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0970A60A25B7BE8100A9B59B /* TableViewCell.xib */; };
 		0970A60F25B8E4C700A9B59B /* LibroManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A60E25B8E4C700A9B59B /* LibroManager.swift */; };
 		0970A61225B8EDB400A9B59B /* LibroData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A61125B8EDB400A9B59B /* LibroData.swift */; };
+		0970A61525B901D300A9B59B /* LibroModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0970A61425B901D300A9B59B /* LibroModelo.swift */; };
 		686FCC99C9EEF2185506C289 /* Pods_BookStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87997E5103EC4F736B9BEC6E /* Pods_BookStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		0970A60A25B7BE8100A9B59B /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		0970A60E25B8E4C700A9B59B /* LibroManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibroManager.swift; sourceTree = "<group>"; };
 		0970A61125B8EDB400A9B59B /* LibroData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibroData.swift; sourceTree = "<group>"; };
+		0970A61425B901D300A9B59B /* LibroModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibroModelo.swift; sourceTree = "<group>"; };
 		795E4415EACBDC2C33B0C995 /* Pods-BookStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.release.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.release.xcconfig"; sourceTree = "<group>"; };
 		87997E5103EC4F736B9BEC6E /* Pods_BookStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBDE18C7CC78A40B138EF8A /* Pods-BookStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookStore.debug.xcconfig"; path = "Target Support Files/Pods-BookStore/Pods-BookStore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				0970A60A25B7BE8100A9B59B /* TableViewCell.xib */,
 				0970A60E25B8E4C700A9B59B /* LibroManager.swift */,
 				0970A61125B8EDB400A9B59B /* LibroData.swift */,
+				0970A61425B901D300A9B59B /* LibroModelo.swift */,
 			);
 			path = BookStore;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				0970A60425B4F3AF00A9B59B /* BibliotecaViewController.swift in Sources */,
 				095F289425AFABAE00CDF410 /* loginViewController.swift in Sources */,
 				0970A60F25B8E4C700A9B59B /* LibroManager.swift in Sources */,
+				0970A61525B901D300A9B59B /* LibroModelo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,5 +16,13 @@ struct LibroData: Codable {
 struct Item: Codable {
     let kind: String
     let id: String
+    let volumeInfo: VolumeInfo
 }
+
+struct VolumeInfo: Codable {
+    let title: String
+    let authors: [String]
+    let publishedDate: String
+}
+
 

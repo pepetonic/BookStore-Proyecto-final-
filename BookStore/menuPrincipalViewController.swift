@@ -11,7 +11,8 @@ import WebKit
 
 class menuPrincipalViewController: UIViewController {
     
-    let libroManager = LibroManager()
+    var libroManager = LibroManager()
+    var libroBuscado: LibroModelo?
 
     @IBOutlet weak var tablaLibros: UITableView!
     @IBOutlet weak var busquedaTextField: UITextField!
@@ -23,6 +24,9 @@ class menuPrincipalViewController: UIViewController {
         tablaLibros.dataSource = self
         tablaLibros.delegate = self
         tablaLibros.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        //Delegado de LibroManager
+        libroManager.delegado = self
         
     }
     
@@ -80,7 +84,6 @@ class menuPrincipalViewController: UIViewController {
     
     @IBAction func buscarLibros(_ sender: UIButton) {
         if let libro = busquedaTextField.text, libro != "" {
-            //buscarLibroApi(busqueda: libro)
             libroManager.fetchClima(libro: libro)
         }else{
             let alert = UIAlertController(title: "Error", message: "Rellene el campo de busqueda", preferredStyle: .alert)
@@ -90,59 +93,40 @@ class menuPrincipalViewController: UIViewController {
         }
     }
     
-    /*func buscarLibroApi (busqueda: String){
-        let urlAPI = URL(string: "https://www.googleapis.com/books/v1/volumes?q=\(busqueda.replacingOccurrences(of: " ", with: "%20"))")
-        let peticion = URLRequest(url: urlAPI!)
-        let tarea = URLSession.shared.dataTask(with: peticion){ datos, respuesta, error in
-            if error != nil {
-                print(error!)
-            }else{
-                do{
-                    let json = try JSONSerialization.jsonObject(with: datos!, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                    //print (json)
-                    
-                    let items = json ["totalItems"] as! Int
-                    
-                    print(items)
-                    
-                    let subjson  = json as! [String: Any]
-                    
-                    let idLibro = subjson ["id"] as! String
-                    print(idLibro)
-                                        
-                    
-                    
-                }catch{
-                    print("Error al procesar el JSON: \(error.localizedDescription)")
-                }
-            }
-        }
-        tarea.resume()
-    }*/
-
-    
 }
 
 extension menuPrincipalViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1;
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        /*let celda = tablaLibros.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        celda.textLabel?.text = contactos[indexPath.row].nombre
-        celda.detailTextLabel?.text = String(contactos[indexPath.row].telefono ?? 0)
-        return celda*/
-        
         let objCelda = tablaLibros.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
-        objCelda.libroLabel.text = "Libro"
-        objCelda.autorLabel.text = "Autor"
-        objCelda.imageView?.image = #imageLiteral(resourceName: "libro")
-        return objCelda
-         
+        if libroBuscado == nil{
+            objCelda.libroLabel.text = ""
+            objCelda.autorLabel.text = ""
+            objCelda.imageView?.image = #imageLiteral(resourceName: "libro")
+            return objCelda
+        } else {
+            objCelda.libroLabel.text = libroBuscado?.nombreLibro
+            objCelda.autorLabel.text = libroBuscado?.autores[0]
+            return objCelda
+        }
     }
     
+    
+}
+
+extension menuPrincipalViewController: LibroManagerDelegate {
+    func actualizarLibro(libro: LibroModelo) {
+        //print(libro.autores)
+        libroBuscado = libro
+        print(libroBuscado)
+        DispatchQueue.main.sync {
+            tablaLibros.reloadData()
+        }
+        
+    }
     
 }
 

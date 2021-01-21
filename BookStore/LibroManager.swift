@@ -7,7 +7,14 @@
 
 import Foundation
 
+protocol LibroManagerDelegate {
+    func actualizarLibro(libro: LibroModelo)
+}
+
 struct LibroManager {
+    
+    var delegado: LibroManagerDelegate?
+    
     let libroUrl = "https://www.googleapis.com/books/v1/volumes?key=AIzaSyBG1JcEyo1TfyWVBtEHRNlqCU5yLPbK4UA"
     
     func fetchClima(libro: String){
@@ -32,7 +39,10 @@ struct LibroManager {
                 }
                 if let datosSeguros = data {
                     // decodificar el obj json de la api
-                    parseJSON(libroData: datosSeguros)
+                    if let libro = self.parseJSON(libroData: datosSeguros){
+                        //Quien sea el delegado cualquier clase o strcut que implemente el metodo actualizaeLibro
+                        delegado?.actualizarLibro(libro: libro)
+                    }
                 }
             }
             
@@ -41,15 +51,23 @@ struct LibroManager {
         }
     }
     
-    func parseJSON(libroData: Data){
+    func parseJSON(libroData: Data) -> LibroModelo? {
         let decoder = JSONDecoder()
         do{
            let dataDecodificada = try decoder.decode(LibroData.self , from: libroData)
-            print(dataDecodificada.kind)
-            print(dataDecodificada.totalItems)
-            print(dataDecodificada.items.first!.id)
+            //let indice = dataDecodificada.totalItems
+            let id = dataDecodificada.items[0].id
+            let nombre = dataDecodificada.items[0].volumeInfo.title
+            let autor = dataDecodificada.items[0].volumeInfo.authors
+            let fechaPub = dataDecodificada.items[0].volumeInfo.publishedDate
+            
+            let ObjLibro = LibroModelo(libroId: id, nombreLibro: nombre, autores: autor, fechaPublicacion: fechaPub)
+            
+            
+            return ObjLibro
         }catch{
             print (error)
+            return nil
         }
     }
     
