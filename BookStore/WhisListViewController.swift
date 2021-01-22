@@ -9,21 +9,40 @@ import UIKit
 
 class WhisListViewController: UIViewController {
 
+    @IBOutlet weak var tablaLibros: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Celda personalizada
+        tablaLibros.dataSource = self
+        tablaLibros.delegate = self
+        tablaLibros.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        
     }
     
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+
+extension WhisListViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let objCelda = tablaLibros.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
+        //if libroBuscado == nil{
+            objCelda.libroLabel.text = ""
+            objCelda.autorLabel.text = ""
+            objCelda.imageView?.image = #imageLiteral(resourceName: "libro")
+            return objCelda
+       /* } else {
+            objCelda.libroLabel.text = libroBuscado?.nombreLibro
+            objCelda.autorLabel.text = libroBuscado?.autores[0]
+            return objCelda
+        }*/
+    }
 }

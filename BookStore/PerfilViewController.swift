@@ -23,7 +23,7 @@ class PerfilViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         button.layer.cornerRadius = 25.0
-        
+        //button.isHidden = true
         
         if Auth.auth().currentUser != nil {
             obtenerDatosUsuario()

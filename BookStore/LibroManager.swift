@@ -34,7 +34,7 @@ struct LibroManager {
             //let tarea = session.dataTask(with: url, completionHandler: handle(data:respuesta:error:))
             let tarea = session.dataTask(with: url) { (data, respuesta, error) in
                 if error != nil {
-                    print(error!)
+                    print("El error es: \(error!)")
                     return
                 }
                 if let datosSeguros = data {
@@ -54,13 +54,12 @@ struct LibroManager {
     func parseJSON(libroData: Data) -> LibroModelo? {
         let decoder = JSONDecoder()
         do{
-           let dataDecodificada = try decoder.decode(LibroData.self , from: libroData)
+            let dataDecodificada = try decoder.decode(LibroData.self , from: libroData)
             //let indice = dataDecodificada.totalItems
             let id = dataDecodificada.items[0].id
             let nombre = dataDecodificada.items[0].volumeInfo.title
             let autor = dataDecodificada.items[0].volumeInfo.authors
             let fechaPub = dataDecodificada.items[0].volumeInfo.publishedDate
-            
             let ObjLibro = LibroModelo(libroId: id, nombreLibro: nombre, autores: autor, fechaPublicacion: fechaPub)
             
             

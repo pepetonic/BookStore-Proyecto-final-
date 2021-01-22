@@ -8,28 +8,92 @@
 import UIKit
 import FirebaseAuth
 import WebKit
+import FirebaseFirestore
 
 class menuPrincipalViewController: UIViewController {
     
     var libroManager = LibroManager()
-    var libroBuscado: LibroModelo?
-
-    @IBOutlet weak var tablaLibros: UITableView!
+    var libroRecibido: LibroModelo?
+    let db = Firestore.firestore()
+    var email: String?
+    var listaDeseos: [String]?
+    var bandera: Bool?
+    
+    @IBOutlet weak var nombreLibroLabel: UILabel!
+    @IBOutlet weak var resultadoLabel: UILabel!
+    @IBOutlet weak var autorLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    
+    @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var compraButton: UIButton!
+    
     @IBOutlet weak var busquedaTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Datos de la BD
+        cargarUser()
+        cargarListaDeseos()
+        
         // Ocultar el boton de regresar
         navigationItem.hidesBackButton = true
-        //Celda personalizada
-        tablaLibros.dataSource = self
-        tablaLibros.delegate = self
-        tablaLibros.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        //Modificar botones
+        favButton.layer.cornerRadius = 25.0
+        compraButton.layer.cornerRadius = 25.0
+        
+        //Ocultar interfaz
+        ocultarInterfaz()
+        
+        
         
         //Delegado de LibroManager
         libroManager.delegado = self
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Ocultar interfaz
+        ocultarInterfaz()
+        
+        //Datos de la BD
+        cargarUser()
+        cargarListaDeseos()
+    }
+    
+    func cargarUser(){
+        let user = Auth.auth().currentUser
+        if let user = user {
+            email = user.email
+        }
+    }
+    
+    func cargarListaDeseos(){
+        db.collection("listaDeseos").document(email!).getDocument{
+            (document, error) in
+            if let document = document, error == nil{
+                if let libros = document.get("libros") as? [String]{
+                    self.listaDeseos = libros
+                }else {
+                    self.listaDeseos = []
+                }
+            }else{
+                self.listaDeseos = []
+            }
+        }
+    }
+    
+    func ocultarInterfaz(){
+        bandera = true
+        nombreLibroLabel.text = ""
+        resultadoLabel.text=""
+        autorLabel.text = " "
+        yearLabel.text = ""
+        
+        favButton.isHidden = bandera!
+        compraButton.isHidden = bandera!
+    }
 
    
     @IBAction func menuButton(_ sender: UIBarButtonItem) {
@@ -93,9 +157,31 @@ class menuPrincipalViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func agregarWishList(_ sender: Any) {
+        listaDeseos?.append(libroRecibido!.libroId)
+        let data: [String: Any] = [
+            "name":"Lista de deseos",
+            "libros": listaDeseos
+        ]
+        
+        db.collection("listaDeseos").document(email!).setData(data, merge: true){ error in
+            if let error = error {
+                print("Error en el documento: \(error)")
+            }else {
+                self.performSegue(withIdentifier: "toWishList", sender: self)
+            }
+            
+        }
+        
+    }
+    
+    @IBAction func carritoCompras(_ sender: Any) {
+        
+    }
 }
 
-extension menuPrincipalViewController : UITableViewDelegate, UITableViewDataSource {
+/*extension menuPrincipalViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -112,18 +198,34 @@ extension menuPrincipalViewController : UITableViewDelegate, UITableViewDataSour
             objCelda.autorLabel.text = libroBuscado?.autores[0]
             return objCelda
         }
-    }
-    
-    
+    }   
 }
-
+*/
 extension menuPrincipalViewController: LibroManagerDelegate {
     func actualizarLibro(libro: LibroModelo) {
         //print(libro.autores)
-        libroBuscado = libro
-        print(libroBuscado)
+        libroRecibido = libro
         DispatchQueue.main.sync {
-            tablaLibros.reloadData()
+            //tablaLibros.reloadDat
+            autorLabel.text = ""
+            nombreLibroLabel.text = libro.nombreLibro
+            resultadoLabel.text = "Resultado de la busqueda"
+            yearLabel.text = libro.fechaPublicacion
+            for escritor in libro.autores{
+                autorLabel.text = "\(autorLabel.text ?? " "), \(escritor)"
+            }
+            if listaDeseos != nil {
+                for id in listaDeseos! {
+                    if (libro.libroId == id){
+                        bandera = true
+                        break
+                    }else{
+                        bandera = false
+                    }
+                }
+            }
+            favButton.isHidden = bandera!
+            compraButton.isHidden = false
         }
         
     }
