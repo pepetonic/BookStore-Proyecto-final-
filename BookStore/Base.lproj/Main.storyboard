@@ -622,8 +622,21 @@
                     <view key="view" contentMode="scaleToFill" id="iGe-DV-KX3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8PG-tE-rH6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <color key="backgroundColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zS8-wO-b9x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8PG-tE-rH6" firstAttribute="leading" secondItem="zS8-wO-b9x" secondAttribute="leading" id="Vbl-fM-bLC"/>
+                            <constraint firstItem="zS8-wO-b9x" firstAttribute="bottom" secondItem="8PG-tE-rH6" secondAttribute="bottom" id="bSQ-jG-PVI"/>
+                            <constraint firstItem="zS8-wO-b9x" firstAttribute="trailing" secondItem="8PG-tE-rH6" secondAttribute="trailing" id="iVO-in-HQj"/>
+                            <constraint firstItem="8PG-tE-rH6" firstAttribute="top" secondItem="zS8-wO-b9x" secondAttribute="top" id="kwf-tc-xiy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Biblioteca" id="KyJ-8j-Hxt"/>
                 </viewController>

@@ -16,8 +16,9 @@ class menuPrincipalViewController: UIViewController {
     var libroRecibido: LibroModelo?
     let db = Firestore.firestore()
     var email: String?
-    var listaDeseos: [String]?
-    var bandera: Bool?
+    //var listaDeseos: [String]?
+    var listaDeseos = [String]()
+    var bandera = false
     
     @IBOutlet weak var nombreLibroLabel: UILabel!
     @IBOutlet weak var resultadoLabel: UILabel!
@@ -75,11 +76,7 @@ class menuPrincipalViewController: UIViewController {
             if let document = document, error == nil{
                 if let libros = document.get("libros") as? [String]{
                     self.listaDeseos = libros
-                }else {
-                    self.listaDeseos = []
                 }
-            }else{
-                self.listaDeseos = []
             }
         }
     }
@@ -91,8 +88,8 @@ class menuPrincipalViewController: UIViewController {
         autorLabel.text = " "
         yearLabel.text = ""
         
-        favButton.isHidden = bandera!
-        compraButton.isHidden = bandera!
+        favButton.isHidden = bandera
+        compraButton.isHidden = bandera
     }
 
    
@@ -159,7 +156,7 @@ class menuPrincipalViewController: UIViewController {
     
     
     @IBAction func agregarWishList(_ sender: Any) {
-        listaDeseos?.append(libroRecibido!.libroId)
+        listaDeseos.append(libroRecibido!.libroId)
         let data: [String: Any] = [
             "name":"Lista de deseos",
             "libros": listaDeseos
@@ -181,26 +178,6 @@ class menuPrincipalViewController: UIViewController {
     }
 }
 
-/*extension menuPrincipalViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let objCelda = tablaLibros.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
-        if libroBuscado == nil{
-            objCelda.libroLabel.text = ""
-            objCelda.autorLabel.text = ""
-            objCelda.imageView?.image = #imageLiteral(resourceName: "libro")
-            return objCelda
-        } else {
-            objCelda.libroLabel.text = libroBuscado?.nombreLibro
-            objCelda.autorLabel.text = libroBuscado?.autores[0]
-            return objCelda
-        }
-    }   
-}
-*/
 extension menuPrincipalViewController: LibroManagerDelegate {
     func actualizarLibro(libro: LibroModelo) {
         //print(libro.autores)
@@ -214,17 +191,17 @@ extension menuPrincipalViewController: LibroManagerDelegate {
             for escritor in libro.autores{
                 autorLabel.text = "\(autorLabel.text ?? " "), \(escritor)"
             }
-            if listaDeseos != nil {
-                for id in listaDeseos! {
+            print(listaDeseos)
+            if listaDeseos.count > 0 {
+                for id in listaDeseos {
                     if (libro.libroId == id){
-                        bandera = true
+                        favButton.isHidden = true
                         break
                     }else{
-                        bandera = false
+                        favButton.isHidden = false
                     }
                 }
             }
-            favButton.isHidden = bandera!
             compraButton.isHidden = false
         }
         

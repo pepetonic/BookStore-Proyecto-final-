@@ -108,7 +108,7 @@ extension WhisListViewController : UITableViewDelegate, UITableViewDataSource {
                 }
                 i += 1
             }
-            
+            //Actualizo los datos de firestore y se elminia el id seleccionado
             let data: [String: Any] = [
                 "name":"Lista de deseos",
                 "libros": listaDeseos

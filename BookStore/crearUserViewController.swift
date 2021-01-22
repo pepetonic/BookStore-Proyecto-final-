@@ -45,7 +45,30 @@ class crearUserViewController: UIViewController {
                         "nombre" : nombre,
                         "saldo": 0
                     ])
-                    self.performSegue(withIdentifier: "toMenu", sender: self)
+                    // crear lista de deseos vacía
+                    let listaDeseos = [""]
+                    let data: [String: Any] = [
+                        "name":"Lista de deseos",
+                        "libros": listaDeseos
+                    ]
+                    self.db.collection("listaDeseos").document(email).setData(data, merge: true){ error in
+                        if let error = error {
+                            print("Error en el documento: \(error)")
+                        }
+                    }
+                    //crear biblioteca vacía
+                    let biblioteca = [""]
+                    let data1: [String: Any] = [
+                        "name":"Lista de deseos",
+                        "libros": biblioteca
+                    ]
+                    self.db.collection("biblioteca").document(email).setData(data1, merge: true){ error in
+                        if let error = error {
+                            print("Error en el documento: \(error)")
+                        }else {
+                            self.performSegue(withIdentifier: "toMenu", sender: self)
+                        }
+                    }
                 }
             }
         }
