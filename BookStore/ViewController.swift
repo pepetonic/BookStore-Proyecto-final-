@@ -10,9 +10,13 @@ import FirebaseAuth
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registroButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loginButton.layer.cornerRadius = 25.0
+        registroButton.layer.cornerRadius = 25.0
         validarUsuarioLogueado()
     }
 

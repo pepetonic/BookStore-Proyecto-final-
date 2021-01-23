@@ -174,7 +174,7 @@ class menuPrincipalViewController: UIViewController {
     }
     
     @IBAction func carritoCompras(_ sender: Any) {
-        
+        performSegue(withIdentifier: "toBiblioteca", sender: self)
     }
 }
 

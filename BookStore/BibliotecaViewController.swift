@@ -9,6 +9,7 @@ import UIKit
 
 class BibliotecaViewController: UIViewController {
 
+    @IBOutlet weak var tablaBiblioteca: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

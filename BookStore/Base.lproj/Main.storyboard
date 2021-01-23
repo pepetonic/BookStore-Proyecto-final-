@@ -62,6 +62,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="BookStore" id="hZA-Ub-N7s"/>
                     <connections>
+                        <outlet property="loginButton" destination="0i3-xO-foL" id="WUu-00-vhm"/>
+                        <outlet property="registroButton" destination="6Pa-fi-6xV" id="sWd-2Q-VtV"/>
                         <segue destination="Kxm-kU-UZo" kind="show" identifier="toLogin" id="2CY-8p-lAH"/>
                         <segue destination="WiV-Og-M2G" kind="show" identifier="toRegistro" id="hpJ-SX-ma5"/>
                         <segue destination="YIl-al-46w" kind="show" identifier="userLogueado" id="B3V-6n-Zpd"/>
@@ -165,20 +167,20 @@
             <objects>
                 <viewController id="YIl-al-46w" customClass="menuPrincipalViewController" customModule="BookStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yc3-3E-Wvm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jvQ-n4-Fht" userLabel="Stack View Busqueda">
-                                <rect key="frame" x="10" y="20" width="355" height="77"/>
+                                <rect key="frame" x="10" y="64" width="355" height="53"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Buscar libro" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mYP-tS-Psk">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-Xp-rsV">
-                                        <rect key="frame" x="335" y="0.0" width="20" height="77"/>
+                                        <rect key="frame" x="335" y="0.0" width="20" height="53"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="magnifyingglass" catalog="system"/>
                                         <connections>
@@ -194,7 +196,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="TQG-yp-L5W" userLabel="Stack View Info">
-                                <rect key="frame" x="20" y="180" width="335" height="174"/>
+                                <rect key="frame" x="20" y="200" width="335" height="174"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resultado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I03-GH-YxJ">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="24"/>
@@ -241,7 +243,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="zDh-uh-Bmb" userLabel="Stack View Acciones">
-                                <rect key="frame" x="20" y="484" width="335" height="33"/>
+                                <rect key="frame" x="20" y="504" width="335" height="33"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4d9-4Y-tnY">
                                         <rect key="frame" x="0.0" y="0.0" width="142.5" height="33"/>
@@ -339,11 +341,11 @@
             <objects>
                 <viewController id="glq-WE-0ah" customClass="WhisListViewController" customModule="BookStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYC-7W-fhs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S12-li-DQn">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -381,7 +383,7 @@
             <objects>
                 <viewController id="1Qo-ru-WmP" customClass="PerfilViewController" customModule="BookStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tvs-Ak-gOi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FRB-1X-mXJ">
@@ -560,7 +562,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpv-c8-wic">
-                                <rect key="frame" x="148.5" y="487" width="78" height="30"/>
+                                <rect key="frame" x="100" y="487" width="175" height="30"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Registrarse">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -582,6 +584,7 @@
                         <constraints>
                             <constraint firstItem="EMd-xc-fzb" firstAttribute="leading" secondItem="Aei-Xy-988" secondAttribute="leading" id="1Hw-xF-wW7"/>
                             <constraint firstItem="EMd-xc-fzb" firstAttribute="centerX" secondItem="pdM-G9-dPP" secondAttribute="centerX" id="4lW-CV-zAB"/>
+                            <constraint firstItem="lpv-c8-wic" firstAttribute="leading" secondItem="B0q-bE-CsX" secondAttribute="leading" constant="100" id="4y9-ej-G7n"/>
                             <constraint firstItem="EMd-xc-fzb" firstAttribute="trailing" secondItem="Aei-Xy-988" secondAttribute="trailing" id="8nE-ba-qkC"/>
                             <constraint firstItem="EMd-xc-fzb" firstAttribute="centerX" secondItem="T9e-I1-4hB" secondAttribute="centerX" id="BAQ-hZ-L3z"/>
                             <constraint firstItem="L3H-V6-aDE" firstAttribute="top" secondItem="T9e-I1-4hB" secondAttribute="bottom" constant="8" id="Dw5-jd-ypU"/>
@@ -592,6 +595,7 @@
                             <constraint firstItem="DMY-Ww-Vf7" firstAttribute="top" secondItem="EMd-xc-fzb" secondAttribute="bottom" constant="17" id="SpF-NA-j0X"/>
                             <constraint firstItem="EMd-xc-fzb" firstAttribute="trailing" secondItem="L3H-V6-aDE" secondAttribute="trailing" id="U2t-yx-aBp"/>
                             <constraint firstItem="EMd-xc-fzb" firstAttribute="top" secondItem="B0q-bE-CsX" secondAttribute="top" constant="27" id="URd-gn-2aI"/>
+                            <constraint firstItem="B0q-bE-CsX" firstAttribute="trailing" secondItem="lpv-c8-wic" secondAttribute="trailing" constant="100" id="WNR-qB-XKG"/>
                             <constraint firstItem="DMY-Ww-Vf7" firstAttribute="centerX" secondItem="T9e-I1-4hB" secondAttribute="centerX" id="cxc-IQ-EJ8"/>
                             <constraint firstItem="EMd-xc-fzb" firstAttribute="leading" secondItem="L3H-V6-aDE" secondAttribute="leading" id="eQb-bU-ZQV"/>
                             <constraint firstItem="5hx-Nl-VvB" firstAttribute="top" secondItem="L3H-V6-aDE" secondAttribute="bottom" constant="17" id="eig-MV-1X0"/>
@@ -608,6 +612,7 @@
                         <outlet property="contraTextField" destination="ork-Dw-i6B" id="O9J-LR-BXG"/>
                         <outlet property="correoTextField" destination="L3H-V6-aDE" id="Sig-kF-SbQ"/>
                         <outlet property="nombreTextField" destination="Aei-Xy-988" id="xbb-Hq-5Lp"/>
+                        <outlet property="registroButton" destination="lpv-c8-wic" id="JYD-ZF-2F0"/>
                         <segue destination="YIl-al-46w" kind="show" identifier="toMenu" id="xIu-g6-A1h"/>
                     </connections>
                 </viewController>
@@ -620,13 +625,23 @@
             <objects>
                 <viewController id="mFi-Ks-Qai" customClass="BibliotecaViewController" customModule="BookStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iGe-DV-KX3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8PG-tE-rH6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="1" green="0.78090049969999997" blue="0.5240299571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="ynk-7W-fnM">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ynk-7W-fnM" id="Hkp-i5-Clp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zS8-wO-b9x"/>
@@ -639,6 +654,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Biblioteca" id="KyJ-8j-Hxt"/>
+                    <connections>
+                        <outlet property="tablaBiblioteca" destination="8PG-tE-rH6" id="Bgi-jx-jGu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Gu-X0-DHt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -672,7 +690,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WvT-gZ-F8d"/>
+        <segue reference="xIu-g6-A1h"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.circle.fill" catalog="system" width="128" height="121"/>

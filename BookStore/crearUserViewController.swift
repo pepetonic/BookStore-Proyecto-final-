@@ -16,12 +16,13 @@ class crearUserViewController: UIViewController {
     @IBOutlet weak var correoTextField: UITextField!
     @IBOutlet weak var contraTextField: UITextField!
     
+    @IBOutlet weak var registroButton: UIButton!
     //instancia de firestore
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        registroButton.layer.cornerRadius = 25.0
         // Do any additional setup after loading the view.
     }
     
@@ -59,7 +60,7 @@ class crearUserViewController: UIViewController {
                     //crear biblioteca vacía
                     let biblioteca = [""]
                     let data1: [String: Any] = [
-                        "name":"Lista de deseos",
+                        "name":"Biblioteca de libros",
                         "libros": biblioteca
                     ]
                     self.db.collection("biblioteca").document(email).setData(data1, merge: true){ error in
