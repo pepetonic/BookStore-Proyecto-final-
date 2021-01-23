@@ -16,8 +16,12 @@ class menuPrincipalViewController: UIViewController {
     var libroRecibido: LibroModelo?
     let db = Firestore.firestore()
     var email: String?
-    //var listaDeseos: [String]?
+    var saldo = 0.0
+    var name = ""
+    
+    //listas
     var listaDeseos = [String]()
+    var listaCompras = [String]()
     var bandera = false
     
     @IBOutlet weak var nombreLibroLabel: UILabel!
@@ -35,6 +39,7 @@ class menuPrincipalViewController: UIViewController {
         //Datos de la BD
         cargarUser()
         cargarListaDeseos()
+        cargarBiblioteca()
         
         // Ocultar el boton de regresar
         navigationItem.hidesBackButton = true
@@ -61,12 +66,26 @@ class menuPrincipalViewController: UIViewController {
         //Datos de la BD
         cargarUser()
         cargarListaDeseos()
+        cargarBiblioteca()
     }
     
     func cargarUser(){
         let user = Auth.auth().currentUser
         if let user = user {
             email = user.email
+            db.collection("users").document(email!).getDocument{
+                (document, error) in
+                if let document = document, error == nil {
+                    if let credito = document.get("saldo") as? Double {
+                        self.saldo = credito
+                        print("El saldo es: \(self.saldo)")
+                    }
+                    if let nombre = document.get("nombre") as? String{
+                        self.name = nombre
+                        print("El nombre es: \(self.name)")
+                    }
+                }
+            }
         }
     }
     
@@ -81,12 +100,25 @@ class menuPrincipalViewController: UIViewController {
         }
     }
     
+    func cargarBiblioteca(){
+        db.collection("biblioteca").document(email!).getDocument {
+            (document, error) in
+            if let document = document, error == nil {
+                if let libros = document.get("libros") as? [String]{
+                    self.listaCompras = libros
+                    print("Libros comprados: \(libros)")
+                }
+            }
+        }
+    }
+    
     func ocultarInterfaz(){
         bandera = true
         nombreLibroLabel.text = ""
         resultadoLabel.text=""
         autorLabel.text = " "
         yearLabel.text = ""
+        busquedaTextField.text = ""
         
         favButton.isHidden = bandera
         compraButton.isHidden = bandera
@@ -174,8 +206,50 @@ class menuPrincipalViewController: UIViewController {
     }
     
     @IBAction func carritoCompras(_ sender: Any) {
-        performSegue(withIdentifier: "toBiblioteca", sender: self)
+        let alert = UIAlertController(title: "Comprar", message: "Seguro que desea realizar la compra", preferredStyle: .alert)
+        
+        let aceptar = UIAlertAction(title: "Aceptar", style: .default) { (_) in
+            self.comprar()
+        }
+        let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alert.addAction(aceptar)
+        alert.addAction(cancelar)
+        
+        present(alert, animated: true, completion: nil)
     }
+    
+    func comprar(){
+        if saldo > 149.99{
+            saldo = saldo - 149.99
+            listaCompras.append(libroRecibido!.libroId)
+            let data: [String: Any] = [
+                "name":"Lista de deseos",
+                "libros": listaCompras
+            ]
+            
+            db.collection("biblioteca").document(email!).setData(data, merge: true){ error in
+                if let error = error {
+                    print("Error en el documento: \(error)")
+                }else {
+                    self.db.collection("users").document(self.email!).setData([
+                        "nombre" : self.name ,
+                        "saldo" : self.saldo
+                    ])
+                    self.performSegue(withIdentifier: "toBiblioteca", sender: self)
+                }
+                
+            }
+        }else{
+            let alert = UIAlertController(title: "Error", message: "No cuenta con el saldo para realizar la compra", preferredStyle: .alert)
+            let aceptar = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
+            
+            alert.addAction(aceptar)
+            
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension menuPrincipalViewController: LibroManagerDelegate {
@@ -187,7 +261,7 @@ extension menuPrincipalViewController: LibroManagerDelegate {
             autorLabel.text = ""
             nombreLibroLabel.text = libro.nombreLibro
             resultadoLabel.text = "Resultado de la busqueda"
-            yearLabel.text = libro.fechaPublicacion
+            yearLabel.text = "Fecha Publicación: \(libro.fechaPublicacion) Precio: $149.99"
             for escritor in libro.autores{
                 autorLabel.text = "\(autorLabel.text ?? " "), \(escritor)"
             }
@@ -202,7 +276,16 @@ extension menuPrincipalViewController: LibroManagerDelegate {
                     }
                 }
             }
-            compraButton.isHidden = false
+            if listaCompras.count > 0 {
+                for id in listaCompras {
+                    if (libro.libroId == id){
+                        compraButton.isHidden = true
+                        break
+                    }else{
+                        compraButton.isHidden = false
+                    }
+                }
+            }
         }
         
     }
